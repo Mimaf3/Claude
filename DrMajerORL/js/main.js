@@ -93,10 +93,7 @@ window.addEventListener('load', () => {
   const cardScrollObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-active');
-          cardScrollObserver.unobserve(entry.target);
-        }
+        entry.target.classList.toggle('is-active', entry.isIntersecting);
       });
     },
     { threshold: 0.45 }
