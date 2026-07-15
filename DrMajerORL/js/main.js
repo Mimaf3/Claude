@@ -82,11 +82,5 @@ const sectionObserver = new IntersectionObserver(
 );
 sections.forEach((s) => sectionObserver.observe(s));
 
-// Cards: hover reveals the description on desktop (CSS :hover);
-// tapping toggles it open/closed on touch devices (no hover there).
-document.querySelectorAll('.cards-grid .card, .surgery-grid .surgery-item').forEach((el) => {
-  el.addEventListener('click', () => el.classList.toggle('is-active'));
-});
-
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
