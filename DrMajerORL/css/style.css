@@ -444,8 +444,8 @@ h2 em { font-style: italic; color: var(--teal-600); }
   transform-origin: left;
   transition: transform 0.35s ease;
 }
-.card.is-active, .card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.card.is-active::before, .card:focus-within::before { transform: scaleX(1); }
+.card:hover, .card.is-active, .card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.card:hover::before, .card.is-active::before, .card:focus-within::before { transform: scaleX(1); }
 
 .card-icon {
   display: grid;
@@ -458,7 +458,7 @@ h2 em { font-style: italic; color: var(--teal-600); }
   transition: background 0.3s ease, color 0.3s ease;
 }
 .card-icon svg { width: 26px; height: 26px; }
-.card.is-active .card-icon, .card:focus-within .card-icon {
+.card:hover .card-icon, .card.is-active .card-icon, .card:focus-within .card-icon {
   background: linear-gradient(135deg, var(--teal-500), #0891b2);
   color: var(--white);
 }
@@ -470,7 +470,7 @@ h2 em { font-style: italic; color: var(--teal-600); }
   transform: translateY(-4px);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.card.is-active p, .card:focus-within p {
+.card:hover p, .card.is-active p, .card:focus-within p {
   opacity: 1;
   transform: translateY(0);
 }
@@ -497,7 +497,7 @@ h2 em { font-style: italic; color: var(--teal-600); }
   cursor: pointer;
   transition: box-shadow 0.5s ease, border-color 0.3s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.surgery-item.is-active, .surgery-item:focus-within {
+.surgery-item:hover, .surgery-item.is-active, .surgery-item:focus-within {
   border-color: rgba(15, 181, 174, 0.5);
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
@@ -517,7 +517,7 @@ h2 em { font-style: italic; color: var(--teal-600); }
   transform: translateY(-4px);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.surgery-item.is-active p, .surgery-item:focus-within p {
+.surgery-item:hover p, .surgery-item.is-active p, .surgery-item:focus-within p {
   opacity: 1;
   transform: translateY(0);
 }
