@@ -466,25 +466,13 @@ h2 em { font-style: italic; color: var(--teal-600); }
 .card p {
   font-size: 0.96rem;
   color: var(--ink-soft);
-  max-height: 0;
   opacity: 0;
-  overflow: hidden;
   transform: translateY(-4px);
-  transition: max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease 0.05s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card.is-active p, .card:focus-within p {
-  max-height: 150px;
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Hover reveal only on devices with a real pointer (mouse) — avoids the
-   "sticky hover" bug on touchscreens where :hover gets stuck on after a tap. */
-@media (hover: hover) {
-  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-  .card:hover::before { transform: scaleX(1); }
-  .card:hover .card-icon { background: linear-gradient(135deg, var(--teal-500), #0891b2); color: var(--white); }
-  .card:hover p { max-height: 150px; opacity: 1; transform: translateY(0); }
 }
 
 /* ---------- Chirurgie (clair contrasté) ---------- */
@@ -525,21 +513,13 @@ h2 em { font-style: italic; color: var(--teal-600); }
 .surgery-item p {
   font-size: 0.92rem;
   color: var(--ink-soft);
-  max-height: 0;
   opacity: 0;
-  overflow: hidden;
   transform: translateY(-4px);
-  transition: max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease 0.05s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .surgery-item.is-active p, .surgery-item:focus-within p {
-  max-height: 120px;
   opacity: 1;
   transform: translateY(0);
-}
-
-@media (hover: hover) {
-  .surgery-item:hover { border-color: rgba(15, 181, 174, 0.5); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-  .surgery-item:hover p { max-height: 120px; opacity: 1; transform: translateY(0); }
 }
 
 .clinics {

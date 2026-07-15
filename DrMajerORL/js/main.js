@@ -82,24 +82,23 @@ const sectionObserver = new IntersectionObserver(
 );
 sections.forEach((s) => sectionObserver.observe(s));
 
-// Cards: tap-to-reveal (fallback for touch), plus auto-reveal while scrolling on phones
+// Cards: reveal description on mouse hover, tap, keyboard focus, or scroll (mobile)
 const revealTargets = document.querySelectorAll('.cards-grid .card, .surgery-grid .surgery-item');
 revealTargets.forEach((el) => {
+  el.addEventListener('mouseenter', () => el.classList.add('is-active'));
+  el.addEventListener('mouseleave', () => el.classList.remove('is-active'));
   el.addEventListener('click', () => el.classList.toggle('is-active'));
 });
 
-window.addEventListener('load', () => {
-  if (!window.matchMedia('(hover: none)').matches) return;
-  const cardScrollObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('is-active', entry.isIntersecting);
-      });
-    },
-    { threshold: 0.45 }
-  );
-  revealTargets.forEach((el) => cardScrollObserver.observe(el));
-});
+const cardScrollObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('is-active', entry.isIntersecting);
+    });
+  },
+  { threshold: 0.45 }
+);
+revealTargets.forEach((el) => cardScrollObserver.observe(el));
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
