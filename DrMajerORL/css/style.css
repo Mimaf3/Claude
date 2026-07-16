@@ -136,12 +136,12 @@ ul { list-style: none; }
 /* Keep the brand on one line and un-shrinkable only once the desktop nav has
    room to breathe; on narrower screens (mobile menu range) let it shrink/wrap
    naturally like before — it's not cramped there since nav/actions are hidden. */
-@media (min-width: 1481px) {
+@media (min-width: 1181px) {
   .brand { flex-shrink: 0; }
   .brand-text, .brand-text strong, .brand-text small { white-space: nowrap; }
 }
 
-.nav { display: flex; gap: 1rem; flex-shrink: 0; }
+.nav { display: flex; gap: 0.85rem; flex-shrink: 0; }
 .nav a {
   font-weight: 600;
   font-size: 0.9rem;
@@ -901,7 +901,7 @@ h2 em { font-style: italic; color: var(--teal-600); }
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1480px) {
+@media (max-width: 1180px) {
   .nav { display: none; }
   .burger { display: flex; }
   .nav.open {
