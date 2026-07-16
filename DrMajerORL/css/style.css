@@ -1006,6 +1006,8 @@ h2 em { font-style: italic; color: var(--teal-600); }
 .prose li { margin-bottom: 0.45rem; }
 .prose strong { color: var(--ink); }
 .prose a { color: var(--teal-600); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(15,181,174,0.35); }
+.prose .btn { color: var(--white); text-decoration: none; }
+.prose .btn-outline { color: var(--ink); }
 
 .two-col {
   display: grid;
