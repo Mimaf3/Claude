@@ -761,8 +761,8 @@ h2 em { font-style: italic; color: var(--teal-600); }
 }
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.3fr 0.8fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.1fr 0.8fr 0.9fr 0.9fr;
+  gap: 2.5rem;
   padding: 4rem 0 3rem;
 }
 .footer .brand-text strong { color: var(--navy-950); }
@@ -874,4 +874,212 @@ h2 em { font-style: italic; color: var(--teal-600); }
   .header-actions .btn-primary { padding: 0.7rem 1.1rem; font-size: 0.85rem; }
   .fab span { display: none; }
   .fab { padding: 1rem; }
+}
+
+/* =========================================================
+   Sub-pages (consultation, chirurgie, parcours, informations…)
+   ========================================================= */
+
+/* Compact page header, used instead of the big home hero */
+.page-hero {
+  position: relative;
+  padding: 8.5rem 0 3.5rem;
+  background: linear-gradient(165deg, #f3f7fb 0%, #e0ecf5 60%, #dcecec 100%);
+  overflow: hidden;
+}
+.page-hero .container { position: relative; }
+.page-hero-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.page-hero-crumb a:hover { color: var(--teal-600); }
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy-950);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--teal-600); }
+.page-hero p { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }
+
+/* Long-form content */
+.prose { max-width: 74ch; }
+.prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.9rem;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.prose p { color: var(--ink-soft); margin-bottom: 1.1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0 0 1.1rem; padding-left: 1.3rem; color: var(--ink-soft); }
+.prose li { margin-bottom: 0.45rem; }
+.prose strong { color: var(--ink); }
+.prose a { color: var(--teal-600); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(15,181,174,0.35); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.two-col-reverse { grid-template-columns: 0.85fr 1fr; }
+.two-col-reverse .prose { order: 2; }
+
+/* Sidebar callout card */
+.side-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 6.5rem;
+}
+.side-card + .side-card { margin-top: 1.2rem; }
+.side-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy-950); margin-bottom: 0.7rem; }
+.side-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.side-card li { font-size: 0.92rem; color: var(--ink-soft); }
+.side-card li a { color: var(--ink); font-weight: 600; }
+.side-card li a:hover { color: var(--teal-600); }
+.side-card .btn { width: 100%; justify-content: center; margin-top: 0.4rem; }
+
+/* Alert / emergency callout */
+.alert-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: var(--radius);
+  background: #fef3ee;
+  border: 1px solid #f6ddce;
+  margin: 1.6rem 0;
+}
+.alert-box svg { width: 22px; height: 22px; color: #c2620f; flex-shrink: 0; margin-top: 2px; }
+.alert-box p { color: #8a4a13; margin: 0; font-size: 0.94rem; }
+.alert-box strong { color: #6b3a0f; }
+
+.info-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--teal-50);
+  border: 1px solid rgba(15, 181, 174, 0.25);
+  margin: 1.6rem 0;
+}
+.info-box svg { width: 22px; height: 22px; color: var(--teal-600); flex-shrink: 0; margin-top: 2px; }
+.info-box p { color: var(--ink); margin: 0; font-size: 0.94rem; }
+
+/* Equipment page */
+.equip-category { margin-bottom: 3.2rem; }
+.equip-category:last-child { margin-bottom: 0; }
+.equip-category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--navy-950);
+  margin-bottom: 1.4rem;
+}
+.equip-category-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.equip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+.equip-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.equip-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.equip-card h3 { font-size: 0.98rem; font-weight: 700; color: var(--navy-950); margin-bottom: 0.4rem; }
+.equip-card p { font-size: 0.88rem; color: var(--ink-soft); }
+
+/* Cabinet gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: 0.9rem;
+}
+.gallery-grid img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-item { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item-tall { grid-row: span 2; }
+
+/* Locations */
+.locations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.location-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+}
+.location-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy-950); margin-bottom: 0.6rem; }
+.location-card p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.3rem; }
+.location-card a { color: var(--teal-600); font-weight: 600; font-size: 0.88rem; }
+
+/* Numbered step list (used on info/prep pages) */
+.step-list { counter-reset: step; display: flex; flex-direction: column; gap: 1.3rem; margin: 1.6rem 0; }
+.step {
+  display: flex;
+  gap: 1.1rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-500), #0891b2);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.step p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+.step strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .two-col, .two-col-reverse { grid-template-columns: 1fr; gap: 2.2rem; }
+  .two-col-reverse .prose { order: 1; }
+  .side-card { position: static; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .locations-grid { grid-template-columns: 1fr; }
 }
