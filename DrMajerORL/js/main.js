@@ -13,20 +13,42 @@ window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 // Mobile menu
+// Uses the position:fixed body-lock trick (not just overflow:hidden) because
+// on mobile Safari, a fixed-position overlay opened while the page is scrolled
+// otherwise renders offset from the visual viewport, showing only its bottom half.
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
+let lockedScrollY = 0;
+
+function openMenu() {
+  lockedScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  nav.classList.add('open');
+  burger.classList.add('open');
+  burger.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  nav.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  window.scrollTo(0, lockedScrollY);
+}
+
 burger.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  burger.classList.toggle('open', open);
-  burger.setAttribute('aria-expanded', open);
-  document.body.style.overflow = open ? 'hidden' : '';
+  if (nav.classList.contains('open')) closeMenu();
+  else openMenu();
 });
 nav.querySelectorAll('a').forEach((link) =>
   link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    if (nav.classList.contains('open')) closeMenu();
   })
 );
 
